@@ -18,10 +18,9 @@ function RewardPage() {
     setIsLoading(true);
     axios
       .get(
-        "http://seller-vouchers.herokuapp.com/v1/getCoupons/naveen@gmail.com"
+        "http://f488-27-122-61-50.ngrok.io/v1/getCoupons/ruthpotterruiz@gmail.com"
       )
       .then((response) => {
-        console.log(response);
         setIsLoading(false);
         setLoadedRewards(response.data.coupons);
       })
