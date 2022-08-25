@@ -8,18 +8,17 @@ function RewardPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedRewards, setLoadedRewards] = useState([]);
 
-  const config = {
-    headers: {
-      Authorization,
-    },
-  };
+  // const config = {
+  //   headers: {
+  //     Authorization,
+  //   },
+  // };
 
   useEffect(() => {
     setIsLoading(true);
     axios
       .get(
-        "http://seller-vouchers.herokuapp.com/v1/getCoupons/naveen@gmail.com",
-        config
+        "http://seller-vouchers.herokuapp.com/v1/getCoupons/naveen@gmail.com"
       )
       .then((response) => {
         console.log(response);
