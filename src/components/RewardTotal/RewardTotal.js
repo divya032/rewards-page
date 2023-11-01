@@ -8,7 +8,6 @@ function RewardTotal() {
   return (
     <div className={classes.container}>
       <div>
-        <div className={classes.logo}></div>
         <div>${totalPriceContext.totalPrice}</div>
         <div>Total Rewards</div>
       </div>
