@@ -1,25 +1,10 @@
 import RewardItem from "../RewardItem/RewardItem";
-import { useContext, useEffect } from "react";
-import classes from "./RewardList.module.css";
-import TotalPriceContext from "../../stores/total-context";
+import "./RewardList.css";
 
-function RewardList(props) {
-  const totalPriceContext = useContext(TotalPriceContext);
-
-  useEffect(
-    () =>
-      totalPriceContext.setTotalPrice(
-        props.rewards.reduce((acc, value) => {
-          if (value.isUsed) return acc + value.couponValue;
-          return acc;
-        }, 0)
-      ),
-    []
-  );
-
+const RewardList = ({ rewards }) => {
   return (
-    <ul className={classes.list}>
-      {props.rewards.map((reward) => (
+    <ul className="coupons-list">
+      {rewards.map((reward) => (
         <RewardItem
           key={reward.code}
           code={reward.code}
@@ -34,6 +19,6 @@ function RewardList(props) {
       ))}
     </ul>
   );
-}
+};
 
 export default RewardList;

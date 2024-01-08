@@ -1,31 +1,31 @@
-import Card from "../ui/Card";
-import classes from "./RewardItem.module.css";
+import "./RewardItem.css";
 
-function RewardItem(props) {
-  let labelClass = props.isUsed == true ? "used-container" : "unused-container";
-  let labelText = props.isUsed == true ? "Used" : "Redeem it";
-  let mainClass = props.isExpired == true ? "expiredCard" : "content";
-  let expiredLabel =
-    props.isExpired == true
-      ? "EXPIRED"
-      : `EXPIRES ON ${new Date(props.expirationDate).toLocaleDateString()}`;
+const RewardItem = ({
+  title,
+  isUsed,
+  isExpired,
+  code,
+  couponType,
+  expirationDate,
+}) => {
+  let labelClass = isUsed ? "used-coupon-button" : "unused-coupon-button";
+  let labelText = isUsed ? "Redeemed" : "Redeem it";
+  let mainClass = isExpired ? "expired-card" : "active-card";
+  let expiredLabel = isExpired
+    ? "EXPIRED"
+    : `EXPIRES ON ${new Date(expirationDate).toLocaleDateString()}`;
 
   return (
-    <li className={classes.item}>
-      <Card>
-        <div className={classes[mainClass]}>
-          <div className={classes[labelClass]}>{labelText}</div>
-          <h3>{props.title}</h3>
-          <h4>{expiredLabel}</h4>
-          <div className={classes["code-container"]}>{props.code}</div>
-          <div className={classes["couponType-container"]}>
-            {props.couponType}
-          </div>
-          {/* <p>{props.couponDescription}</p> */}
-        </div>
-      </Card>
+    <li className="item">
+      <div className={mainClass}>
+        <button className={labelClass}>{labelText}</button>
+        <h3 className="coupon-title">{title}</h3>
+        <h4>{expiredLabel}</h4>
+        <div className="coupon-code">{code}</div>
+        <div className="coupon-type">{couponType}</div>
+      </div>
     </li>
   );
-}
+};
 
 export default RewardItem;

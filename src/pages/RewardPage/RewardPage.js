@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import classes from "./RewardPage.module.css";
-import RewardTotal from "../../components/RewardTotal/RewardTotal";
 import RewardList from "../../components/RewardList/RewardList";
+import "./RewardPage.css";
 
-function RewardPage() {
+const RewardPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedRewards, setLoadedRewards] = useState([]);
 
-  // const config = {
-  //   headers: {
-  //     Authorization,
-  //   },
-  // };
+  const caculateTotalRewards = () => {
+    return loadedRewards.reduce((acc, value) => {
+      if (value.isUsed) return acc + value.couponValue;
+      return acc;
+    }, 0);
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -32,7 +32,7 @@ function RewardPage() {
             title: "SHIPPING",
             couponType: "SHIPPING-FREE",
             isUsed: true,
-            isExpired: true,
+            isExpired: false,
             couponDescription: "400 Cashback",
             emailId: "naveen@gmail.com",
             expirationDate: "2024-02-18T02:25:00Z",
@@ -119,7 +119,19 @@ function RewardPage() {
             isExpired: true,
             couponDescription: "400 Cashback",
             emailId: "naveen@gmail.com",
-            expirationDate: "2024-02-18T02:25:00Z",
+            expirationDate: "2029-02-18T02:25:00Z",
+            termsConditions: "Terms and condition apply",
+            couponValue: 40,
+          },
+          {
+            code: "D22VH9PV01",
+            title: "CASHBACK",
+            couponType: "CASH_DISCOUNT",
+            isUsed: false,
+            isExpired: false,
+            couponDescription: "400 Cashback",
+            emailId: "naveen@gmail.com",
+            expirationDate: "2029-02-18T02:25:00Z",
             termsConditions: "Terms and condition apply",
             couponValue: 40,
           },
@@ -136,10 +148,12 @@ function RewardPage() {
   }
 
   return (
-    <section className={classes["main-container"]}>
-      <RewardTotal />
+    <section className="main-container">
+      <div className="total-rewards">
+        Rewards Redeemed - ${caculateTotalRewards()}
+      </div>
       <RewardList rewards={loadedRewards} />
     </section>
   );
-}
+};
 export default RewardPage;

@@ -1,0 +1,59 @@
+.item {
+  margin: 1em 0;
+}
+
+.active-card {
+  text-align: center;
+  padding: 2em;
+  margin: 0.5em;
+  background: white;
+  border-radius: 6px;
+}
+
+.expired-card {
+  text-align: center;
+  padding: 2em;
+  margin: 0.5em;
+  opacity: 0.6;
+  background: white;
+  border-radius: 6px;
+}
+
+.coupon-title {
+  font-size: 1.25rem;
+  color: #2c292b;
+}
+
+.coupon-code {
+  padding: 0.5rem;
+  border: 3px solid rgb(120, 22, 239);
+  border-radius: 10px;
+  margin: 0.5em;
+}
+
+.used-coupon-button {
+  background-color: rgb(75, 88, 81);
+  box-shadow: 5px 5px 5px rgb(161, 163, 162);
+  color: white;
+  font-size: 1em;
+  padding: 0.9em 1.8em;
+  border: 0px;
+  border-radius: 10px;
+}
+
+.unused-coupon-button {
+  background-color: rgb(120, 22, 239);
+  box-shadow: 5px 5px 5px rgb(153, 79, 242);
+  color: white;
+  font-weight: 900;
+  font-size: 1em;
+  padding: 0.9em 1.8em;
+  border: 0px;
+  border-radius: 10px;
+}
+
+.coupon-type {
+  padding: 0.5em;
+  border: 2px solid rgb(255, 140, 0);
+  border-radius: 10px;
+}

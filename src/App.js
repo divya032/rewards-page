@@ -1,13 +1,11 @@
 import "./App.css";
 import RewardPage from "./pages/RewardPage/RewardPage";
-import { TotalPriceContextProvider } from "./stores/total-context";
 
 function App() {
   return (
     <div className="App">
-      <TotalPriceContextProvider>
-        <RewardPage />
-      </TotalPriceContextProvider>
+      <h1 className="main-heading">Redeem your Rewards</h1>
+      <RewardPage />
     </div>
   );
 }

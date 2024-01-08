@@ -1,0 +1,8 @@
+.coupons-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0px;
+  background-color: rgb(189, 139, 249);
+}
